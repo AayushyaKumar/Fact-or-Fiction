@@ -1,11 +1,12 @@
 import React from 'react'
+import Navbar from "./Navbar.jsx"
 import { Outlet } from 'react-router-dom'
 function root() {
   return (
     <>
     <Navbar/>
-    <Outlook/>
-    <Forms/>
+    <Outlet/>
+    {/* <Forms/> */}
     </>
   )
 }

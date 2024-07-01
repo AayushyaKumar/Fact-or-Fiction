@@ -14,11 +14,16 @@ export default function Navbar (){
             {/* Sign Up */}
           {/* </button> */}
           {/* </Link> */} 
+          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          <li>
+            <button>
           <NavLink to="/signup"
-           className={({isActive}) =>`block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`}>
+           className={({isActive}) =>` hover:bg-violet-700 hover:text-white font-bold py-1.5  px-7 rounded ${isActive ? "bg-violet-600 text-white" : " border-2 border-violet-600"}   lg:hover:bg-transparent lg:border-0  lg:p-0`}>
             Sign Up
             
-          </NavLink>
+          </NavLink></button></li>
+          
+          </ul>
         </div>
       </div>
      

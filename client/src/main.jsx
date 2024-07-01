@@ -2,8 +2,8 @@ import  * as React from 'react'
 import  * as ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import ErrorPage from "./routes/error-page.jsx"
-import Navbar from "./routes/Navbar.jsx"
-import Forms from "./routes/Forms.jsx"
+
+import Root from "./routes/Root.jsx"
 import Signup from "./routes/Signup.jsx"
 import Login from "./routes/Login.jsx"
 import './index.css'
@@ -16,21 +16,21 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navbar/> ,
+    element: <Root/> ,
     errorElement: <ErrorPage/>,
   
  
   children: [
     {
-      path: "/",
-      element: <Forms/>,
+      path: "signup",
+      element:<Signup/> ,
     },
-    // {
-    //   path: "login",
-    //   element:<Login/>
-    // }
+    {
+      path: "login",
+      element:<Login/>
+    }
   ],
-   },
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
