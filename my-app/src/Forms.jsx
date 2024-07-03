@@ -16,13 +16,14 @@ const App=async(event)=>{
       'Accept': 'text/plain',
     },
     body: JSON.stringify({ inputText }),
-  });
+  
+  }); 
   const text = await response.text();
    const formatText= text.split('.').map((paragraph, index) => (
     <span key={index}>{paragraph}.<br /></span>
   ))
     setOutputText(formatText);
-  
+  console.log(outputText)
 }
 
   return(
