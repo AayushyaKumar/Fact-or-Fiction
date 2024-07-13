@@ -8,5 +8,5 @@ router.route("/signup").post(
 )
 
 router.route("/news").post(mlController.news);
-
+router.route("/login").post(authController.login)
 module.exports = router;
