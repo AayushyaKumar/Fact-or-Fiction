@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // customOne: ['CustomFontOne', 'Playwrite België Vlaams Gewest'],
+        customTwo: ['CustomFontTwo', 'DancingScript-Regular']
+    }},
+    
   },
   plugins: [],
+ darkMode: 'class',
+
 }
+

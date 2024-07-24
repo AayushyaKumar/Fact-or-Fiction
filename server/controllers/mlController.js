@@ -12,9 +12,9 @@ exports.news = async (req, res) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const UserPrompt = req.body.inputText;
-    console.log(req.body.text);
-    const result = await model.generateContent(UserPrompt || req.body.text);
+    const UserPrompt = req.body.input;
+    console.log(req.body.input);
+    const result = await model.generateContent(UserPrompt || req.body.input);
     const response = await result.response;
     const text = response.text();
     console.log("Result:" + " " + text);

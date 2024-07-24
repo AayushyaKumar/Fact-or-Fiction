@@ -1,0 +1,20 @@
+/* @font-face{
+    font-family:'CustomFontOne';
+    src: url('/src/assets/fonts/PlaywriteBEVLG-VariableFont_wght.ttf') format('ttf'),
+    url('/src/assets/fonts/PlaywriteBEVLG-Regular.ttf');
+
+
+    font-weight:400;
+    font-style:normal;
+} */
+
+@font-face{
+    font-family:'CustomFontTwo';
+    src: url('/src/assets/fonts/DancingScript-Regular.ttf');
+
+
+    font-weight:400;
+    
+}
+
+

@@ -1,11 +1,12 @@
+import './../App.css'
 
 import { NavLink} from "react-router-dom";
 export default function Navbar (){
-  return (
-  <div>
+return (
+  <div  >
     <nav className="bg-white-800 py-2 px-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-black flex justify-left text-2xl ">
+        <h1 className="  font-extrabold flex justify-left text-2xl font-serif">
         🔎 FACT OR FICTION
         </h1>
         <div className="flex items-center space-x-14">
@@ -14,11 +15,12 @@ export default function Navbar (){
             {/* Sign Up */}
           {/* </button> */}
           {/* </Link> */} 
+         
           <ul className="flex flex-row  font-medium   lg:flex-row lg:space-x-8 lg:mt-0">
           <li>
             <button>
           <NavLink to="/signup"
-           className={({isActive}) =>` hover:bg-violet-700 hover:text-white font-bold py-1.5  px-8 mr-5  rounded ${isActive ? "bg-violet-600 text-white" : "  bg-violet-600"}   `}>
+           className={({isActive}) =>` hover:bg-violet-700 hover:text-white  font-bold py-1.5  px-8 mr-5  rounded ${isActive ? "bg-violet-600 text-white" : "  bg-violet-600 "}   `}>
             Sign Up
             
           </NavLink></button></li>
@@ -32,11 +34,17 @@ export default function Navbar (){
 
           
           </ul>
+         
+
         </div>
       </div>
+
+
      
     </nav>
-
+  {/* <NavLink to="/form">
+  
+  </NavLink> */}
        </div>
      
   );

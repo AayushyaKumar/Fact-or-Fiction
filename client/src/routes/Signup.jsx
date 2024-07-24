@@ -1,36 +1,36 @@
-import {useState} from "react";
+
+import {useState} from "react"
 import axios from "axios";
 export default function Signup() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [signupStatus, setSignupStatus] = useState(''); // To handle success/error messages
-  
-    const handleSubmit = async (e) => {
+ const [signupStatus,setSignupStatus]=useState("")
+     const handleSubmit = async (e) => {
       e.preventDefault();
-  
-      // Basic input validation (you can add more checks as needed)
+    
+     
       if (name.trim() === '') {
         setSignupStatus('Please enter your name.');
         return;
       }
-  
+    
       if (email.trim() === '' || !/\S+@\S+\.\S+/.test(email)) {
         setSignupStatus('Please enter a valid email address.');
         return;
       }
-  
+    
       if (password.trim() === '') {
         setSignupStatus('Please enter a password.');
         return;
       }
-  
+    
       if (password !== confirmPassword) {
         setSignupStatus('Passwords do not match.');
         return;
       }
-  
+    
       try {
         const response = await axios.post(`${import.meta.env.VITE_PORT}signup`, {
           name,
@@ -38,18 +38,18 @@ export default function Signup() {
           password,
           confirmPassword
         });
-  
+    
         if (response.data) {
           setSignupStatus('Account created successfully!');
+          return response.data.status;
           // Optionally, redirect to a success page or dashboard
-        } else {
-          setSignupStatus(response.data.message || 'Signup failed.');
-        }
-      } catch ({message}) {
+        
+      } }catch ({message}) {
         console.error(message); // Log the error for debugging
         setSignupStatus('An error occurred during signup. Please try again. '+ error);
       }
     };
+    
     
   return (
     <div className="flex items-center justify-center p-14">

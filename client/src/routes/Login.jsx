@@ -1,11 +1,13 @@
 
 import {useState} from "react";
 import axios from "axios"
+
 export default function Login() {
 
   const [email,setEmail]=useState("")
   const[password,setPassword]=useState("")
   const[auth,setAuth] = useState("")
+
 const handleLogin= async (e)=>{
   try{
   e.preventDefault();
@@ -18,8 +20,13 @@ const handleLogin= async (e)=>{
 
    if(response.data){
     setAuth("Logged In Successfully");
+  localStorage.setItem('token',response.data.token)
    
    }  
+
+
+
+
   }catch(error){
     setAuth("Something went wrong")
     console.log(error);
@@ -27,6 +34,8 @@ const handleLogin= async (e)=>{
 
 
 }
+
+
 
   return ( 
   <div className=" flex items-center justify-center p-14" >
@@ -58,3 +67,5 @@ const handleLogin= async (e)=>{
   )
  
 }
+
+
