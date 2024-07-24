@@ -6,17 +6,20 @@ import ErrorPage from "./routes/error-page.jsx"
 import Root from "./routes/Root.jsx"
 import Signup from "./routes/Signup.jsx"
 import Login from "./routes/Login.jsx"
+// import Forms from "./routes/Forms.jsx"
 import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
+
+
 } from "react-router-dom"
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/> ,
+    element: <Root /> ,
     errorElement: <ErrorPage/>,
   
  

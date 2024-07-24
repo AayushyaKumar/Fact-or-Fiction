@@ -18,6 +18,7 @@
     "express-middleware": "^3.4.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.5",
+    "promisify": "^0.0.3",
     "validator": "^13.12.0"
   }
 }
