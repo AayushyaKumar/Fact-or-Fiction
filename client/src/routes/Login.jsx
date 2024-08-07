@@ -1,15 +1,15 @@
-
 import {useState} from "react";
+import {Link} from "react-router-dom"
 import axios from "axios"
 
 export default function Login() {
-
   const [email,setEmail]=useState("")
   const[password,setPassword]=useState("")
   const[auth,setAuth] = useState("")
+   const[badauth,setBadAuth]= useState("")
+const handleLogin= async (e)=>{ 
 
-const handleLogin= async (e)=>{
-  try{
+  try{  
   e.preventDefault();
 
    const response = await axios.post(`${import.meta.env.VITE_PORT}login`, {
@@ -20,15 +20,16 @@ const handleLogin= async (e)=>{
 
    if(response.data){
     setAuth("Logged In Successfully");
-  localStorage.setItem('token',response.data.token)
-   
+    localStorage.setItem('token',response.data.token)
+    localStorage.setItem('username',response.data.user)
+    
    }  
 
 
 
 
   }catch(error){
-    setAuth("Something went wrong")
+    setBadAuth("Something went wrong")
     console.log(error);
   }
 
@@ -38,7 +39,10 @@ const handleLogin= async (e)=>{
 
 
   return ( 
-  <div className=" flex items-center justify-center p-14" >
+    <>
+  {/* {auth ? <h1>Loading</h1> && <Forms/> : [] */}
+  
+  <div className=" flex items-center justify-center p-14 flex-col" >
     <form className="p-6 " onSubmit={handleLogin}>
      
   <div>
@@ -60,9 +64,16 @@ const handleLogin= async (e)=>{
 <button >Log In</button>  </div>
     </form>
 <div>
-  {auth && <p >{auth}</p> }
+  {auth ? <p >{auth}</p>:<p>{badauth}</p> }
    </div>
+
+<Link to="resetPassword"> 
+   <p className="text-blue-500 underline ">Umm, forgot password ?</p>
+    </Link>  
+    {/* {auth && redirect('/forms')}   */}
    </div>
+   {/* } */}
+   </>
    
   )
  

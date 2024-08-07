@@ -1,11 +1,12 @@
 import {useState} from "react"
 
-
+import {ClockLoader} from "react-spinners"
 export default function Forms(){
     const[input,setInput]=useState("")
 const [output,setOutput]=useState("")
 
-
+const token = localStorage.getItem('token')
+   
 const handleInputChange = (e) => {
 
 setInput(e.target.value)}
@@ -18,11 +19,15 @@ setInput(e.target.value)}
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'text/plain',
+        'Authorization': `Bearer ${token}`
+        
       },  body: JSON.stringify({ input}),
      })
+    
      const text=await response.text();
      
     if(text){
+     
       setOutput(text)
     }}catch(err){
       console.error(err)
@@ -32,9 +37,9 @@ setInput(e.target.value)}
 
 return(
   <div>
- 
 
-<div className="">
+
+<div className="mt-20">
  
 <div className="">
   <form action="" onSubmit={handleSubmit}>
@@ -46,9 +51,9 @@ return(
     </div>
   
   </form></div>
- <div className="mt-12 bg-yellow-200 border-4  border-sky-500 rounded" style={{ whiteSpace: 'pre-wrap' }}>
- {output &&<p className="p-6 font-customTwo font-semibold ">{output} </p>}
-</div>
+ {output &&<div className="mt-12 bg-yellow-200 border-4  border-sky-500 rounded" style={{ whiteSpace: 'pre-wrap' }}>
+  <p className="p-6 font-customTwo font-semibold "><ClockLoader/>{output} </p>
+</div>}
 </div>
 </div>
     )
