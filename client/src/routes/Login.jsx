@@ -49,15 +49,16 @@ const handleLogin= async (e)=>{
   <label htmlFor="email address" className="hidden">
    
   </label>
-   <input type="email" value={email} className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none" placeholder="you@example.com"
+   <input type="email" id="email" name="email"  value={email} className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none" placeholder="you@example.com"
     onChange={(e) => setEmail(e.target.value)}
+    required
    />
 </div>
 <div>
   <label htmlFor=" password" className="hidden"></label>
-  <input type="password"  value={password} placeholder="Enter Password" className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+  <input type="password" id="password" name="password" value={password} placeholder="Enter Password" className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
    onChange={(e) => setPassword(e.target.value)}
-  />
+  required />
 </div>
 
 <div  className=" bg-violet-600  text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-violet-700 flex items-center justify-center" > 
@@ -67,8 +68,8 @@ const handleLogin= async (e)=>{
   {auth ? <p >{auth}</p>:<p>{badauth}</p> }
    </div>
 
-<Link to="resetPassword"> 
-   <p className="text-blue-500 underline ">Umm, forgot password ?</p>
+<Link to="/forgotpassword"> 
+   <p className="text-blue-500 underline font-semibold">Umm, forgot password ?</p>
     </Link>  
     {/* {auth && redirect('/forms')}   */}
    </div>

@@ -1,14 +1,15 @@
 
 // import  * as ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
-import { useEffect,useState } from "react"
+import { useEffect} from "react"
 import ErrorPage from "./routes/error-page.jsx"
 import Home from "./routes/Home.jsx"
-// import Auth from "./routes/Auth.jsx"
+ import  ForgotPassword from "./routes/ForgotPassword"
 import Root from "./routes/Root.jsx"
 import Signup from "./routes/Signup.jsx"
  import Login from "./routes/Login.jsx"
 import Forms from "./routes/Forms.jsx"
+import ResetPassword from "./routes/ResetPassword.jsx"
 import './index.css'
 import {
     BrowserRouter as Router,
@@ -22,6 +23,7 @@ import {
 
 
 } from "react-router-dom"
+
 
 
 export default function App(){
@@ -54,14 +56,17 @@ return(
   <Route path="/login" element={token?(<Navigate to="/forms"/>): (
     // <Navigate to="/login"/>
     <Login/>
-    )} />
+    )}> </Route>
 <Route path="/forms" element={<Forms/>}/>
 
   
-       
+       <Route path="/forgotpassword" element={<ForgotPassword/>}/>
  
 
 <Route path="/" element={<Home/>}/>
+<Route path="/resetPassword/:token" element={<ResetPassword/>}/>
+
+
   </Route>
 
   </Routes>
