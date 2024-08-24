@@ -1,7 +1,15 @@
 import './../App.css'
-import { useState } from 'react';
+
+
+import {ThemeCon} from "./../contexts/Theme"
+import { useContext } from "react"
 import { NavLink} from "react-router-dom";
 export default function Navbar (){
+
+  const aayu = useContext(ThemeCon)
+
+
+
   const isLoggedIn= window.localStorage.getItem('token')
   // useEffect(() => {
 
@@ -13,22 +21,36 @@ export default function Navbar (){
   //     document.documentElement.classList.remove("dark")
   //   }
   // }, []);
-  const [darkMode, setDarkMode] = useState(false)
-  const toggle=()=>{
-    setDarkMode(!darkMode)
-    if(darkMode){
-       document.documentElement.classList.add("dark")
-      window.localStorage.theme ="dark"
+  // const [darkMode, setDarkMode] = useState(false)
+  // // const toggle=()=>{
+  //   setDarkMode(!darkMode)
+  //   // if(darkMode){
+    //    document.documentElement.classList.add("dark")
+    //   window.localStorage.theme ="dark"
      
-    }else{
-      document.documentElement.classList.remove("dark")
-      window.localStorage.theme ="light"
+    // }else{
+    //   document.documentElement.classList.remove("dark")
+    //   window.localStorage.theme ="light"
       
-    }
-  }  
+    // }
+  // }  
+
+  // useEffect(()=>{
+  //   if(darkMode){
+  //     document.documentElement.classList.add("dark")
+  //   window.localStorage.theme ="dark"
+    
+  //  }else{
+  //    document.documentElement.classList.remove("dark")
+  //    window.localStorage.theme ="light"
+     
+  //  }
+  // })
+
+  
  
 return (
-  <div  className={`${darkMode && "dark:text-white "} `}  >
+  <div  className="dark:text-white"  >
     <nav className="bg-white-800  shadow-lg p-2"  >
       <div className="container mx-auto flex justify-between items-center">
         <h2 className= "dark:text-white text-2xl font-mono" >
@@ -41,7 +63,7 @@ return (
           {/* </button> */}
           {/* </Link> */} 
          <div>
-          <button onClick={toggle}>{darkMode? "☀️":"🌚"}</button>
+          <button onClick={aayu.themeSwitch}>{aayu.theme==='light'? "🌜":"☀️"}</button>
          </div>
          { isLoggedIn? <ul><li className='text-blue-600 dark:text-white font-semibold'>
          Hello! 👋  {localStorage.getItem('username')}

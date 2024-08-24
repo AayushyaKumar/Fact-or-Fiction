@@ -183,6 +183,8 @@ exports.forgotPassword = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       message: "Token send to email",
+      resetToken
+      
     });
   } catch ({ name, message }) {
     user.passwordResetToken = undefined;
@@ -190,6 +192,7 @@ exports.forgotPassword = async (req, res, next) => {
     res.status(404).json({
       name,
       message,
+    
     });
     console.log(message);
   }
