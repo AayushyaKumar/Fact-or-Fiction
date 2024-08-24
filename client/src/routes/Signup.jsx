@@ -46,7 +46,7 @@ export default function Signup() {
         
       } }catch ({message}) {
         console.error(message); // Log the error for debugging
-        setSignupStatus('An error occurred during signup. Please try again. '+ error);
+        setSignupStatus('An error occurred during signup. Please try again. '+ message);
       }
     };
     

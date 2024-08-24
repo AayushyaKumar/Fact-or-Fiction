@@ -11,8 +11,9 @@ try{
        e.preventDefault()
       const response = await axios.post(`${import.meta.env.VITE_PORT}forgotPassword`,{
         input
+       
       })
-
+localStorage.setItem("resetToken", response.data.resetToken)
       setOutput(response.data.message)
       console.log(response.data)
     
@@ -37,3 +38,7 @@ try{
 }
 
 export default ForgotPassword
+
+
+
+
