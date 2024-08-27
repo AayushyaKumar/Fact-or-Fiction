@@ -4,7 +4,7 @@ const authController = require("../controllers/authControllers")
 const mlController = require("../controllers/mlController");
 const router = express.Router();
 router.post("/signup",authController.signup)
-router.get("/",authController.AllUser)
+
 router.post("/news",authController.protectedRoute, authController.restrictTo('admin','contributer'),mlController.news);
 router.post("/login",authController.login)
 router.post('/forgotPassword', authController.forgotPassword)

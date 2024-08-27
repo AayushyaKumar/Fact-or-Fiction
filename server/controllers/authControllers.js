@@ -73,19 +73,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
-exports.AllUser = async (req, res) => {
-  const Users = await Create.find();
-  try {
-    res.status(200).json({
-      status: "success",
-      data: {
-        Users,
-      },
-    });
-  } catch ({ name, message }) {
-    name, message;
-  }
-};
+
 
 exports.protectedRoute = async (req, res, next) => {
   try {
