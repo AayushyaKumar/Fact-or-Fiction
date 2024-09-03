@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+  console.log(`/${req.method} method`, req.statusCode)
   next();
 });
 app.use("/", router)
